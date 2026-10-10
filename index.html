@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Negar Ziaeian</title>
+
+  <style>
+    /* General appearance */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #29343b;
+      background: #faf9f6;
+      line-height: 1.7;
+    }
+
+    /* Left and right columns */
+    .layout {
+      display: flex;
+      gap: 60px;
+      max-width: 1100px;
+      margin: 70px auto;
+      padding: 0 30px;
+    }
+
+    /* Left column */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+    }
+
+    .sidebar h1 {
+      font-size: 27px;
+      line-height: 1.3;
+      margin: 0 0 24px;
+    }
+
+    .sidebar img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    /* Right column */
+    .main-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Tab buttons */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 35px;
+    }
+
+    .tab {
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 12px 0;
+      font: inherit;
+      font-size: 17px;
+      color: #58636b;
+      cursor: pointer;
+    }
+
+    .tab:hover {
+      color: #185d68;
+    }
+
+    .tab.active {
+      color: #185d68;
+      border-bottom-color: #185d68;
+    }
+
+    .tab:focus-visible {
+      outline: 2px solid #185d68;
+      outline-offset: 4px;
+    }
+
+    /* Section headings */
+    .panel h2 {
+      font-size: 26px;
+      margin-top: 0;
+      color: #185d68;
+    }
+
+    .panel h3 {
+      font-size: 20px;
+      margin-top: 30px;
+      line-height: 1.4;
+      color: #8b4960;
+    }
+
+    a {
+      color: #185d68;
+    }
+
+    /* Research papers */
+    .paper {
+      margin-bottom: 32px;
+    }
+
+    .paper h4 {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0 0 8px;
+      font-weight: 600;
+    }
+
+    .paper .coauthors {
+      font-size: 14px;
+      font-style: italic;
+      margin: 5px 0;
+    }
+
+    .paper .publication {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    /* Expandable abstracts */
+    .paper details {
+      margin-top: 12px;
+    }
+
+    .paper summary {
+      display: list-item;
+      width: fit-content;
+      padding: 4px 12px;
+      border: 1px solid #185d68;
+      border-radius: 5px;
+      color: #185d68;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .paper summary:hover {
+      background: #eaf1f1;
+    }
+
+    .paper summary:focus-visible {
+      outline: 2px solid #185d68;
+      outline-offset: 3px;
+    }
+
+    .paper details > p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-top: 15px;
+    }
+
+    /* Stack the columns on small screens */
+    @media (max-width: 700px) {
+      .layout {
+        flex-direction: column;
+        gap: 35px;
+        margin: 35px auto;
+        padding: 0 22px;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .sidebar img {
+        max-width: 240px;
+      }
+
+      .tabs {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+
+    <!-- LEFT SIDE: your name and photo -->
+    <aside class="sidebar">
+      <h1>Negar Ziaeian</h1>
+
+      <img
+        src="photo.jpg"
+        alt="Portrait of Negar Ziaeian"
+      >
+    </aside>
+
+    <!-- RIGHT SIDE: tabs and their content -->
+    <main class="main-content">
+
+      <nav class="tabs" aria-label="Website sections">
+        <button
+          type="button"
+          class="tab active"
+          data-panel="home"
+          aria-controls="home"
+          aria-pressed="true"
+        >Home</button>
+
+        <button
+          type="button"
+          class="tab"
+          data-panel="research"
+          aria-controls="research"
+          aria-pressed="false"
+        >Research</button>
+
+        <button
+          type="button"
+          class="tab"
+          data-panel="teaching"
+          aria-controls="teaching"
+          aria-pressed="false"
+        >Teaching</button>
+
+        <button
+          type="button"
+          class="tab"
+          data-panel="cv"
+          aria-controls="cv"
+          aria-pressed="false"
+        >CV</button>
+      </nav>
+
+      <!-- HOME -->
+      <section id="home" class="panel">
+        <p>
+          I am a PhD candidate in Economics at the University of Warwick,
+          working in labour, experimental, and development economics.
+        </p>
+        <p>
+          My research interests include the institutional drivers of female
+          labour force participation and causal inference in bipartite settings.
+        </p>
+      </section>
+
+      <!-- RESEARCH -->
+      <section id="research" class="panel" hidden>
+        <h2>Research</h2>
+
+        <h3>Job Market Paper</h3>
+
+        <article class="paper">
+          <h4>
+            Do Misperceptions about IVF Shape When Women Plan to Have
+            Children? Evidence from an Information Experiment
+          </h4>
+          <p class="coauthors">With Zahra Khanalizadeh</p>
+
+          <details>
+            <summary>Abstract</summary>
+            <p>Female fertility declines with age, and in vitro fertilization (IVF) is the main technology available to extend it, yet many women misjudge what it costs and how often it succeeds. We test whether correcting these misperceptions changes women's career-family timing decisions in an experiment with 635 UK women aged 20-30. Women overestimate their natural fertility and misperceive IVF's cost and success rate, while judging motherhood's labour-market cost fairly accurately. Randomly treating women with information about IVF's true cost or true success rate moves cost beliefs 83% and success beliefs 52% toward the truth, yet neither changes how much income women will forgo for a career allowing earlier motherhood. The null holds regardless of how wrong a woman's prior belief was, across observed characteristics, and in incentivized choices. However, success information lowers demand for egg-freezing information, an insurance against a future IVF attempt. IVF misperceptions are substantial and correctable but do not constrain the career-family timing decision.</p>
+          </details>
+        </article>
+
+        <h3>Working Papers &amp; Publications</h3>
+
+        <article class="paper">
+          <h4>
+            Two-Sided Prioritized Ranking: A Coherency-Preserving
+            Design for Marketplace Experiments
+          </h4>
+          <p class="coauthors">
+            With Mahyar Habibi and Zahra Khanalizadeh
+          </p>
+          <p class="publication">ACM EAAMO, 2026 — forthcoming.</p>
+
+          <details>
+            <summary>Abstract</summary>
+            <p>Online marketplace experiments face interference because items compete for users' attention and demand. Designs must also preserve a consistent experience: users should see the same version of each item and the full catalogue. We propose Two-Sided Prioritized Ranking (TSPR), which randomises users and items and changes display order to generate variation in treatment exposure through position bias. The design preserves consistent prices and item availability while estimating the total average treatment effect. In semi-synthetic simulations calibrated to Expedia hotel-search data, TSPR reduces bias relative to item-level randomisation and improves precision relative to cluster randomisation.</p>
+          </details>
+        </article>
+
+        <article class="paper">
+          <h4>
+            Distinguishing Biases from Personal Preferences:
+            An Honest Machine Learning Approach
+          </h4>
+          <p class="coauthors">
+            With Mahyar Habibi and Zahra Khanalizadeh
+          </p>
+
+          <details>
+            <summary>Abstract</summary>
+            <p>Differences in evaluations can reflect discrimination or sorting on unobserved evaluator preferences and item characteristics. We develop a method combining honest collaborative filtering with double machine learning to estimate evaluator-specific bias from sparse interaction data. Collaborative filtering learns latent preferences and characteristics, while sample restrictions and cross-fitting limit contamination of these controls by the bias being measured. Monte Carlo simulations assess performance under first-stage misspecification. Applied to nearly 150,000 film reviews covering over 8,000 films, the method sharply reduces the apparent favouritism toward female directors found in unadjusted comparisons, illustrating how latent preference sorting can be mistaken for discrimination.</p>
+          </details>
+        </article>
+
+        <h3>Work in Progress</h3>
+
+        <article class="paper">
+          <h4>
+            Gender Discrimination in Public Sector Hiring:
+            Evidence from Iran
+          </h4>
+          <p class="coauthors">With Elaheh Fatemipour</p>
+
+          <details>
+            <summary>Abstract</summary>
+            <p>We document explicit gender targeting in Iranian public-sector recruitment and compare it with private-sector hiring. Using thirteen civil-service recruitment exams from 2015-2025, we construct a dataset of 26,977 postings: 23.6% are restricted to men and 1.8% to women. Job title is the strongest predictor of male targeting, followed by organisation, while substantial variation remains unexplained. Variance decompositions, predictive models, and text analysis show that targeting is associated with skill requirements and gendered job descriptions. In over 40,000 private-sector advertisements, male targeting is less common and targeting is more stable over time; employer identity and job title have more comparable explanatory power.</p>
+          </details>
+        </article>
+
+        <article class="paper">
+          <h4>Mehr and Prenuptial Agreement in Muslim Marriage</h4>
+
+          <details>
+            <summary>Abstract</summary>
+            <p>This paper examines how restricting the enforcement of mehr, a transfer promised by a husband to his wife at marriage, affects marriage contracts and married women's labour-force participation in Iran. Using approximately 2,500 marriage-registry records and Labour Force Survey data from 2008--2020, I compare groups with different predicted exposure to the restriction based on prereform characteristics. The reform reduces registered mehr without detectable changes in other contract terms and is associated with lower labour-force participation among affected married women. The findings are consistent with marriage transfers influencing women's bargaining power and employment decisions within the household.</p>
+          </details>
+        </article>
+      </section>
+
+      <!-- TEACHING -->
+<section id="teaching" class="panel" hidden>
+  <h2>Teaching</h2>
+
+  <h3>University of Warwick</h3>
+
+  <p>
+    <strong>EC107 Economics 1</strong><br>
+    Terms 1 &amp; 2, 2022–23 · Graduate Teaching Assistant
+  </p>
+
+  <p>
+    <strong>EC140 Mathematical Techniques B</strong><br>
+    Term 1, 2023–24 · Graduate Teaching Assistant
+  </p>
+
+  <p>
+    <strong>EC131 Economics for Business</strong><br>
+    Term 2, 2023–24 · Graduate Teaching Assistant
+  </p>
+
+  <p>
+    <strong>EC338 Econometrics 2: Microeconometrics</strong><br>
+    Term 1, 2024–25 · Graduate Teaching Assistant
+  </p>
+
+  <p>
+    <strong>EC131 Economics for Business</strong><br>
+    Term 2, 2024–25 · Graduate Teaching Assistant
+  </p>
+
+  <p>
+    <strong>EC226 Econometrics 1</strong><br>
+    Term 1, 2025–26 · Graduate Teaching Assistant
+  </p>
+
+  <p>
+    <strong>EC124 Statistical Techniques B</strong><br>
+    Term 2, 2025–26 · Graduate Teaching Assistant
+  </p>
+</section>
+
+      <!-- CV -->
+      <section id="cv" class="panel" hidden>
+        <h2>Curriculum Vitae</h2>
+        <p>I will add my CV here soon.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".tab");
+    const panels = document.querySelectorAll(".panel");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        // Highlight the selected button.
+        buttons.forEach((item) => {
+          const selected = item === button;
+          item.classList.toggle("active", selected);
+          item.setAttribute("aria-pressed", String(selected));
+        });
+
+        // Show the selected section.
+        panels.forEach((panel) => {
+          panel.hidden = panel.id !== button.dataset.panel;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
